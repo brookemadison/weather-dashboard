@@ -1,12 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Staatliches&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Weather Dashboard</title>
 </head>
+
 <body>
-    
+    <header class="header">
+        <a>
+            <h1>Weather Dashboard</h1>
+        </a>
+    </header>
+    <main id="search-section" class="flex-row justify-space-between">
+        <div class="col-12 col-md-4">
+            <div class="card">
+                <h3 class="card-header">Search for a City:</h3>
+                <form id="Search-for-city" class="card-body">
+                    <input name="search" id="search" class="searchBar" type="text" placeholder="San Diego"
+                        autofocus="true" class="form-input" />
+                    <button type="submit" class="searchBtn">Search</button>
+                </form>
+                <hr class="hr-line"/>
+            </div>
+        </div>
+    </main>
+    <section class="current-forecast">
+        <h3>atlanta weather</h3>
+    </section>
+
+
+
+
+    <script src="./assets/js/script.js"></script>
 </body>
+
 </html>

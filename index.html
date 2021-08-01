@@ -24,22 +24,24 @@
         <div class="col-12 col-md-4">
             <div class="card">
                 <h3 class="card-header">Search for a City:</h3>
-                <form id="Search-for-city" class="card-body">
+                <form id="search-for-city" class="card-body">
                     <input name="search-key" id="search-key" class="searchBar" type="text" placeholder="San Diego"
                         autofocus="true" class="form-input" />
                     <button type="submit" class="searchBtn">Search</button>
+                    <span class= "msg"></span>
                 </form>
                 <hr class="hr-line"/>
             </div>
         </div>
     </main>
-    <section class="current-forecast">
-        <h3>atlanta weather</h3>
+    <section class="five-forecast">
+        <div class="container">
+            <ul class="forecast"></ul>
+        <h3>forecast section</h3>
+        <p id="currentDay"></p>
+            <p id="currentTime"></p>   
     </section>
-
-
-
-
+    <script src="https://cdn.jsdelivr.net/npm/luxon@2.0.1/build/global/luxon.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 

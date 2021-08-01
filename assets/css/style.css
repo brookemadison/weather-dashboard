@@ -26,6 +26,16 @@
     color: var(--cloud-blue);
   }
 
+  ul {
+    list-style: none;
+  }
+  
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
 /* SEARCH SECTION */
 
   main {
@@ -57,9 +67,98 @@
   }
 
 /* CURRENT FORECAST SECTION */
-.current-forecast{
+
+
+/* 5 DAY FORECAST SECTION */
+.five-forecast{
   border: 5px;
   border-color: black;
+  margin: 50px 0 20px;
+}
+ 
+.five-forecast .forecast {
+  display: grid;
+  grid-gap: 32px 20px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.five-forecast .forecast {
+  position: relative;
+  padding: 40px 10%;
+  border-radius: 20px;
+  background: var(--text_light);
+  color: var(--text_med);
+}
+ 
+.five-forecast .forecast::after {
+  content: ’’;
+  width: 90%;
+  height: 50px;
+  position: absolute;
+  bottom: -12px;
+  left: 5%;
+  z-index: -1;
+  opacity: 0.3;
+  border-radius: 20px;
+  background: var(--text_light);
+}
+ 
+.five-forecast .forecast-date  {
+  font-size: 5rem;
+  font-weight: bold;
+  margin-top: 10px;
+  color: var(--text_dark);
+}
+ 
+.five-forecast .forecast-icon {
+  margin-top: 10px;
+  width: 100px;
+  height: 100px;
+}
+
+.five-forecast .temp {
+  font-size: 5rem;
+  font-weight: bold;
+  margin-top: 10px;
+  color: var(--text_dark);
+}
+
+.five-forecast .wind {
+  font-size: 5rem;
+  font-weight: bold;
+  margin-top: 10px;
+  color: var(--text_dark);
+}
+
+.five-forecast .humidity {
+  font-size: 5rem;
+  font-weight: bold;
+  margin-top: 10px;
+  color: var(--text_dark);
+}
+
+
+
+
+
+
+ 
+@media screen and (max-width: 1000px) { 
+  .five-forecast .forecast {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+ 
+@media screen and (max-width: 700px) {
+  .five-forecast .forecast {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+ 
+@media screen and (max-width: 500px) {  
+  .five-forecast .forecast {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 

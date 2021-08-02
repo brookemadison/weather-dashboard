@@ -42,38 +42,29 @@ var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appi
 
     //fetching by current to get the current weather for city.
 
-    fetch(apiUrl)
-        .then(function (response) {
-            if (response.ok) {
-                response.json().then(function (data) {
-                   
-                    displayCurrent(data.results, current);
-                });
-            }
-            //if request was not successful
-            else {
-                alert("Error:" + response.statusText);
-            }
-        })
-        .catch(function (error) {
-            alert("Forecast not available");
-        })
-};
+ fetch(apiUrl)
+ .then(response => response.json())
+ .then(data => {
+ })
+ .catch(() => {
+   msg.textContent = "Forecast not available.";
+ });
 
 // Search Button 
-var searchBtn = document.querySelector(".searchBtn");
+const form = document.querySelector(".search-section form");
+
  
 // Stops page from reloading
-searchBtn.addEventListener("submit", e => {
-  e.preventDefault();
-  const inputVal = input.value;
-});
+form.addEventListener("submit", e => {
+    e.preventDefault();
+    const inputVal = input.value;
+  });
 
-// 5 day forecast section 
+// 5 day forecast section
 const { main, name, sys, weather } = data;
-const icon = `https://openweathermap.org/img/wn/${
+const icon = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${
   weather[0]["icon"]
-}@2x.png`;
+}.svg`;
  
 var li = document.createElement("li");
 li.classList.add("forecast");
@@ -90,6 +81,48 @@ var markup = `
   </div>
 
 `;
+
 li.innerHTML = markup;
 list.appendChild(li);
 
+msg.textContent = "";
+form.reset();
+input.focus();
+}
+
+// Only allows single request to be made per search 
+
+//1
+const listItems = list.querySelectorAll(".five-forecast .forecast");
+const listItemsArray = Array.from(listItems);
+ 
+if (listItemsArray.length > 0) {
+  //2
+  const filteredArray = listItemsArray.filter(el => {
+    let content = "";
+    //athens,gr
+    if (inputVal.includes(",")) {
+      //athens,grrrrrr->invalid country code, so we keep only the first part of inputVal
+      if (inputVal.split(",")[1].length > 2) {
+        inputVal = inputVal.split(",")[0];
+        content = el.querySelector(".forecast-date span").textContent.toLowerCase();
+      } else {
+        content = el.querySelector(".forecast-date").dataset.name.toLowerCase();
+      }
+    } else {
+      //athens
+      content = el.querySelector(".forecast-date span").textContent.toLowerCase();
+    }
+    return content == inputVal.toLowerCase();
+  });
+   
+  //3
+  if (filteredArray.length > 0) {
+    msg.textContent = `You already know the weather for ${
+      filteredArray[0].querySelector(".forecast-date span").textContent
+    } ...otherwise be more specific by providing the country code as well `;
+    form.reset();
+    input.focus();
+    return;
+  }
+}

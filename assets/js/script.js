@@ -1,16 +1,44 @@
 // Current time and date
-var DateTime = luxon.DateTime
-var time = DateTime.now().toLocaleString(DateTime.DATE_FULL)
-console.log(time)
 
-var dateElement = document.getElementById("currentDay")
 
-dateElement.textContent = time
 
-var time = DateTime.now().toLocaleString(DateTime.TIME_SIMPLE)
-console.log(time)
+// Search Section
+function createCityList(citySearchList) {
+    $("#city-list").empty();
 
-var dateElement = document.getElementById("currentTime")
+    var keys = Object.keys(citySearchList);
+    for (var i = 0; i < keys.length; i++) {
+        var cityListEntry = $("<button>");
+        cityListEntry.addClass("list-group-item list-group-item-action");
 
-dateElement.textContent = time
+        var splitStr = keys[i].toLowerCase().split(" ");
+        for (var j = 0; j < splitStr.length; j++) {
+            splitStr[j] =
+                splitStr[j].charAt(0).toUpperCase() + splitStr[j].substring(1);
+        }
+        var titleCasedCity = splitStr.join(" ");
+        cityListEntry.text(titleCasedCity);
 
+        $("#city-list").append(cityListEntry);
+    }
+}
+function populateCityWeather(city, citySearchList) {
+    createCityList(citySearchList);
+  
+    var queryURL =
+      "https://api.openweathermap.org/data/2.5/weather?&units=imperial&appid=a3bf3981a3e00948b2f668883c6518e1" +
+      city;
+  
+    var queryURL2 =
+      "https://api.openweathermap.org/data/2.5/forecast?&units=imperial&appid=a3bf3981a3e00948b2f668883c6518e1" +
+      city;
+  
+    var latitude;
+  
+    var longitude;
+  
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    })
+}

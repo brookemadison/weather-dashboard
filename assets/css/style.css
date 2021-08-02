@@ -11,458 +11,67 @@
   box-sizing: border-box;
 }
 
-
 .header {
-    height: 70px;
-    background-color: var(--dark-blue); /* For browsers that do not support gradients */
-    background-image: linear-gradient(to right,  var(--dark-blue) , var(--light-blue));
-    padding: 5px;
-    text-align: center;
+  height: 70px;
+  background-color: var(--dark-blue);
+  /* For browsers that do not support gradients */
+  background-image: linear-gradient(to right, var(--dark-blue), var(--light-blue));
+  padding: 5px;
+  text-align: center;
 }
-  
-  h1 {
-    font-size: 48px;
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: var(--cloud-blue);
-  }
 
-  ul {
-    list-style: none;
-  }
-  
-  img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-  }
+h1 {
+  font-size: 48px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: var(--cloud-blue);
+}
+
+ul {
+  list-style: none;
+}
+
+input {
+  width: 75%;
+}
 
 /* SEARCH SECTION */
 
-  main {
-    margin: 30px 0px;
-    width: 64%;
-  }
+.btn-primary {
+  background-color: var(--light-blue);
+  color: var(--cloud-blue);
+  margin-top: 20px;
+  border-radius: 5px;
+  border-color: whitesmoke;
+  padding: 6px 131.5px;
+  font-size: 17px;
+}
 
-  .searchBar {
-    float: left;
-    padding: 6px 20px;
-    margin-top: 4px;
-    font-size: 17px;
-  }
+.btn-primary :hover {
+  color: whitesmoke;
+  background-color: var(--dark-blue);
+  transform: translate(0, 0);
+}
 
-  .searchBtn {
-    background-color: var(--light-blue);
-    color: var(--cloud-blue);
-    margin-top: 20px;
-    border-radius: 8px;
-    border-color:whitesmoke;
-    padding: 6px 89px;
-    font-size: 17px;
-  }
-
-  .searchBtn:hover {
-    color: whitesmoke;
-    background-color: var(--dark-blue);
-    transform: translate(0, 0);
-  }
+#city-list {
+  width: 22rem;
+}
 
 /* CURRENT FORECAST SECTION */
 
-
-/* 5 DAY FORECAST SECTION */
-.five-forecast{
-  border: 5px;
-  border-color: black;
-  margin: 50px 0 20px;
-}
- 
-.five-forecast .forecast {
-  display: grid;
-  grid-gap: 32px 20px;
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.five-forecast .forecast {
-  position: relative;
-  padding: 40px 10%;
-  border-radius: 20px;
-  background: var(--text_light);
-  color: var(--text_med);
-}
- 
-.five-forecast .forecast::after {
-  content: ’’;
-  width: 90%;
-  height: 50px;
-  position: absolute;
-  bottom: -12px;
-  left: 5%;
-  z-index: -1;
-  opacity: 0.3;
-  border-radius: 20px;
-  background: var(--text_light);
-}
- 
-.five-forecast .forecast-date  {
-  font-size: 5rem;
-  font-weight: bold;
-  margin-top: 10px;
-  color: var(--text_dark);
-}
- 
-.five-forecast .forecast-icon {
-  margin-top: 10px;
-  width: 100px;
-  height: 100px;
-}
-
-.five-forecast .temp {
-  font-size: 5rem;
-  font-weight: bold;
-  margin-top: 10px;
-  color: var(--text_dark);
-}
-
-.five-forecast .wind {
-  font-size: 5rem;
-  font-weight: bold;
-  margin-top: 10px;
-  color: var(--text_dark);
-}
-
-.five-forecast .humidity {
-  font-size: 5rem;
-  font-weight: bold;
-  margin-top: 10px;
-  color: var(--text_dark);
-}
-
-
-
-
-
-
- 
-@media screen and (max-width: 1000px) { 
-  .five-forecast .forecast {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
- 
-@media screen and (max-width: 700px) {
-  .five-forecast .forecast {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
- 
-@media screen and (max-width: 500px) {  
-  .five-forecast .forecast {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
-
-
-  
-/* FLEX CONTENT */
-.flex-row {
+#city-date-icon, #city-name, #current-icon {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center/space-around/space-between;
 }
 
-.flex-column {
+/* FIVE DAY FORECAST SECTION */
+
+#forecast-cards {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center/space-between;
 }
 
-.justify-space-between {
-  justify-content: space-between;
+.forecast {
+  margin: 10px;
 }
-
-.justify-space-around {
-  justify-content: space-around;
-}
-
-.justify-flex-start {
-  justify-content: flex-start
-}
-
-.justify-flex-end {
-  justify-content: flex-end;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
-.align-stretch {
-  align-items: stretch;
-}
-
-.align-end {
-  align-items: flex-end;
-}
-
-.align-center {
-  align-items: center;
-}
-
-.col-auto {
-  flex-grow: 1;
-}
-
-.col-1 {
-  flex: 0 0 calc(100% * 1 / 12 - 2%);
-}
-
-.col-2 {
-  flex: 0 0 calc(100% * 2 / 12 - 2%);
-}
-
-.col-3 {
-  flex: 0 0 calc(100% * 3 / 12 - 2%);
-}
-
-.col-4 {
-  flex: 0 0 calc(100% * 4 / 12 - 2%);
-}
-
-.col-5 {
-  flex: 0 0 calc(100% * 5 / 12 - 2%);
-}
-
-.col-6 {
-  flex: 0 0 calc(100% * 6 / 12 - 2%);
-}
-
-.col-7 {
-  flex: 0 0 calc(100% * 7 / 12 - 2%);
-}
-
-.col-8 {
-  flex: 0 0 calc(100% * 8 / 12 - 2%);
-}
-
-.col-9 {
-  flex: 0 0 calc(100% * 9 / 12 - 2%);
-}
-
-.col-10 {
-  flex: 0 0 calc(100% * 10 / 12 - 2%);
-}
-
-.col-11 {
-  flex: 0 0 calc(100% * 11 / 12 - 2%);
-}
-
-.col-12 {
-  flex: 0 0 100%;
-}
-
-/* MEDIA QUIERIES */
-/* col-sm */
-@media screen and (min-width: 640px) {
-  .col-sm-1 {
-    flex: 0 0 calc(100% * 1 / 12 - 2%);
-  }
-
-  .col-sm-2 {
-    flex: 0 0 calc(100% * 2 / 12 - 2%);
-  }
-
-  .col-sm-3 {
-    flex: 0 0 calc(100% * 3 / 12 - 2%);
-  }
-
-  .col-sm-4 {
-    flex: 0 0 calc(100% * 4 / 12 - 2%);
-  }
-
-  .col-sm-5 {
-    flex: 0 0 calc(100% * 5 / 12 - 2%);
-  }
-
-  .col-sm-6 {
-    flex: 0 0 calc(100% * 6 / 12 - 2%);
-  }
-
-  .col-sm-7 {
-    flex: 0 0 calc(100% * 7 / 12 - 2%);
-  }
-
-  .col-sm-8 {
-    flex: 0 0 calc(100% * 8 / 12 - 2%);
-  }
-
-  .col-sm-9 {
-    flex: 0 0 calc(100% * 9 / 12 - 2%);
-  }
-
-  .col-sm-10 {
-    flex: 0 0 calc(100% * 10 / 12 - 2%);
-  }
-
-  .col-sm-11 {
-    flex: 0 0 calc(100% * 11 / 12 - 2%);
-  }
-
-  .col-sm-12 {
-    flex: 0 0 100%;
-  }
-}
-
-
-/* col-md */
-@media screen and (min-width: 768px) {
-  .col-md-1 {
-    flex: 0 0 calc(100% * 1 / 12 - 2%);
-  }
-
-  .col-md-2 {
-    flex: 0 0 calc(100% * 2 / 12 - 2%);
-  }
-
-  .col-md-3 {
-    flex: 0 0 calc(100% * 3 / 12 - 2%);
-  }
-
-  .col-md-4 {
-    flex: 0 0 calc(100% * 4 / 12 - 2%);
-  }
-
-  .col-md-5 {
-    flex: 0 0 calc(100% * 5 / 12 - 2%);
-  }
-
-  .col-md-6 {
-    flex: 0 0 calc(100% * 6 / 12 - 2%);
-  }
-
-  .col-md-7 {
-    flex: 0 0 calc(100% * 7 / 12 - 2%);
-  }
-
-  .col-md-8 {
-    flex: 0 0 calc(100% * 8 / 12 - 2%);
-  }
-
-  .col-md-9 {
-    flex: 0 0 calc(100% * 9 / 12 - 2%);
-  }
-
-  .col-md-10 {
-    flex: 0 0 calc(100% * 10 / 12 - 2%);
-  }
-
-  .col-md-11 {
-    flex: 0 0 calc(100% * 11 / 12 - 2%);
-  }
-
-  .col-md-12 {
-    flex: 0 0 100%;
-  }
-}
-
-/* col-lg */
-@media screen and (min-width: 992px) {
-  .col-lg-1 {
-    flex: 0 0 calc(100% * 1 / 12 - 2%);
-  }
-
-  .col-lg-2 {
-    flex: 0 0 calc(100% * 2 / 12 - 2%);
-  }
-
-  .col-lg-3 {
-    flex: 0 0 calc(100% * 3 / 12 - 2%);
-  }
-
-  .col-lg-4 {
-    flex: 0 0 calc(100% * 4 / 12 - 2%);
-  }
-
-  .col-lg-5 {
-    flex: 0 0 calc(100% * 5 / 12 - 2%);
-  }
-
-  .col-lg-6 {
-    flex: 0 0 calc(100% * 6 / 12 - 2%);
-  }
-
-  .col-lg-7 {
-    flex: 0 0 calc(100% * 7 / 12 - 2%);
-  }
-
-  .col-lg-8 {
-    flex: 0 0 calc(100% * 8 / 12 - 2%);
-  }
-
-  .col-lg-9 {
-    flex: 0 0 calc(100% * 9 / 12 - 2%);
-  }
-
-  .col-lg-10 {
-    flex: 0 0 calc(100% * 10 / 12 - 2%);
-  }
-
-  .col-lg-11 {
-    flex: 0 0 calc(100% * 11 / 12 - 2%);
-  }
-
-  .col-lg-12 {
-    flex: 0 0 100%;
-  }
-}
-
-/* col-xl */
-@media screen and (min-width: 1200px) {
-  .col-xl-1 {
-    flex: 0 0 calc(100% * 1 / 12 - 2%);
-  }
-
-  .col-xl-2 {
-    flex: 0 0 calc(100% * 2 / 12 - 2%);
-  }
-
-  .col-xl-3 {
-    flex: 0 0 calc(100% * 3 / 12 - 2%);
-  }
-
-  .col-xl-4 {
-    flex: 0 0 calc(100% * 4 / 12 - 2%);
-  }
-
-  .col-xl-5 {
-    flex: 0 0 calc(100% * 5 / 12 - 2%);
-  }
-
-  .col-xl-6 {
-    flex: 0 0 calc(100% * 6 / 12 - 2%);
-  }
-
-  .col-xl-7 {
-    flex: 0 0 calc(100% * 7 / 12 - 2%);
-  }
-
-  .col-xl-8 {
-    flex: 0 0 calc(100% * 8 / 12 - 2%);
-  }
-
-  .col-xl-9 {
-    flex: 0 0 calc(100% * 9 / 12 - 2%);
-  }
-
-  .col-xl-10 {
-    flex: 0 0 calc(100% * 10 / 12 - 2%);
-  }
-
-  .col-xl-11 {
-    flex: 0 0 calc(100% * 11 / 12 - 2%);
-  }
-
-  .col-xl-12 {
-    flex: 0 0 100%;
-  }
-}
-
-
